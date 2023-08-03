@@ -82,12 +82,12 @@ public class ShoppingService {
   }
 
   public void queryTotalApayament() {
-    String sql = "SELECT SUM(totalApayament) AS total_a_pagar FROM orders";
+    String sql = "SELECT SUM(totalApayament) AS totalPayable FROM orders";
     try {
       Statement statement = DbConnection.getConnection().createStatement();
       ResultSet rs = statement.executeQuery(sql);
       while (rs.next()) {
-        System.out.println("Total a pagar R$: " + rs.getInt("total_a_pagar"));
+        System.out.println("Total a pagar R$: " + rs.getInt("totalPayable"));
       }
       System.out.println();
     } catch (SQLException e) {
