@@ -11,8 +11,8 @@ public class ShoppingService {
 
   public void createOderBurger(ShoppingModel shoppingModel) {
     String sql = "INSERT INTO orders (typeBurger, burgerAmount, burgerValue, totalApayament) " +
-        "VALUES ('" + shoppingModel.getTypeBurger() + "', '" + shoppingModel.getBurgerAmount() + "', '" + shoppingModel.getBurgerValue() + "', '" + shoppingModel.getTotalApayament() + "')";
-
+        "VALUES ('" + shoppingModel.getTypeBurger() + "', '" + shoppingModel.getBurgerAmount() + "', '"
+        + shoppingModel.getBurgerValue() + "', '" + shoppingModel.getTotalApayament() + "')";
     try {
       Statement statement = DbConnection.getConnection().createStatement();
       statement.executeUpdate(sql);
@@ -25,7 +25,6 @@ public class ShoppingService {
     String sql = "INSERT INTO orders (typeDrink, drinkAmount, drinkValue, totalApayament)" +
         "VALUES ('" + shoppingModel.getTypeDrink() + "', '" + shoppingModel.getDrinkAmount()
         + "', '" + shoppingModel.getDrinkValue() + "', '" + shoppingModel.getTotalApayament() + "')";
-
     try {
       Statement statement = DbConnection.getConnection().createStatement();
       statement.executeUpdate(sql);
@@ -54,7 +53,6 @@ public class ShoppingService {
 
   public void editOrderBurger(Integer id, Integer burgerAmount) {
     String sql = "UPDATE orders SET burgerAmount = " + burgerAmount + " WHERE id = " + id;
-
     try {
       Statement statement = DbConnection.getConnection().createStatement();
       statement.executeUpdate(sql);
@@ -65,7 +63,6 @@ public class ShoppingService {
 
   public void editOrderDrink(Integer id, Integer drinkAmount) {
     String sql = "UPDATE orders SET drinkAmount = " + drinkAmount + " WHERE id = " + id;
-
     try {
       Statement statement = DbConnection.getConnection().createStatement();
       statement.executeUpdate(sql);
@@ -76,7 +73,6 @@ public class ShoppingService {
 
   public void removeOrder(Integer id) {
     String sql = "DELETE FROM orders WHERE id = " + id;
-
     try {
       Statement statement = DbConnection.getConnection().createStatement();
       statement.executeUpdate(sql);
@@ -93,7 +89,7 @@ public class ShoppingService {
       while (rs.next()) {
         System.out.println("Total a pagar R$: " + rs.getInt("totalApayament"));
       }
-    }catch (SQLException e) {
+    } catch (SQLException e) {
       e.printStackTrace();
     }
   }

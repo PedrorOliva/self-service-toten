@@ -62,6 +62,7 @@ public class UserService {
   }
 
   public void orders(){
+    System.out.println("--- Carrinho de compras ---");
     order.queryOrders();
   }
 
